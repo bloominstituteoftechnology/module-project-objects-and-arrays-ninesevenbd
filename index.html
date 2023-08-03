@@ -23,7 +23,12 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
-
+      const peterBuilt = {
+        firstName: 'Peter',
+        lastName: 'Pan',
+        age: 12
+      }         
+      return peterBuilt
     }
 
     // 👉 CHALLENGE 2
@@ -31,7 +36,12 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+      const user = {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+      }
+      return user   
     }
 
     // 👉 CHALLENGE 3
@@ -42,7 +52,14 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
+    function deletePrice(object) {
+       if ('price' in object) {
+        delete object.price
+       }
+       else {
+        object.priceless = true;
+       }
+       return object
 
     }
 
@@ -53,7 +70,12 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      if (arr.length % 2 === 0) {
+        return true
+      }
+      else {
+        return false
+      }
     }
 
     // 👉 CHALLENGE 5
@@ -62,7 +84,14 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(a, b) {
+      if (b === true) {
+        return a[0]
+      }
+      else {
+        return a[a.length -1]
+      }
+
 
     }
 
@@ -72,8 +101,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(ar, val) {
+      ar.push(val) 
+      return ar
     }
 
     // 👉 CHALLENGE 7
@@ -88,10 +118,24 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(string) {
+      let emptyArray = []
+      const spltString = string.split('')
+      for (let i in spltString) {
+      if (spltString[i] !== 'x') {
+      emptyArray.push(spltString[i]) 
+       }
+       
+      
 
+     
+      }
+      
+      return emptyArray.join('')
+
+      console.log(emptyArray.join(''))
+         
     }
-
     // 👉 CHALLENGE 8
     // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
     // 🧠 The function strips any occurrences of the given character from the string and returns the resulting string.
@@ -101,10 +145,18 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
+    function stripChar(strng, char) {
+      let charArray = [];
 
+  for (let i = 0; i < strng.length; i++) {
+    if (strng[i] !== char) {
+      charArray.push(strng[i]);
     }
+  }
 
+  let resultString = charArray.join("");
+  return resultString;
+}
     // 👉 CHALLENGE 9
     // 🧠 The function getProps takes an object as its argument.
     // 🧠 The function returns an array containing the property names of the object.
@@ -114,9 +166,17 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
+    function getProps(obj) {
+      let propArray = [];
 
+  for (let prop in obj) {
+    if (prop !== "age" && prop !== "married") {
+      propArray.push(prop);
     }
+  }
+
+  return propArray;
+}
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
